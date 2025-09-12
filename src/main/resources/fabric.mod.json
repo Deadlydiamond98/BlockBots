@@ -1,25 +1,28 @@
 {
 	"schemaVersion": 1,
-	"id": "modid",
+	"id": "block_bots",
 	"version": "${version}",
-	"name": "Example mod",
+	"name": "Block Bots",
 	"description": "This is an example description! Tell everyone what your mod is about!",
 	"authors": [
-		"Me!"
+		"Deadlydiamond98"
 	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",
 		"sources": "https://github.com/FabricMC/fabric-example-mod"
 	},
 	"license": "CC0-1.0",
-	"icon": "assets/modid/icon.png",
+	"icon": "assets/block_bots/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"com.example.ExampleMod"
+			"net.deadlydiamond98.BlockBots"
 		],
 		"client": [
-			"com.example.ExampleModClient"
+			"net.deadlydiamond98.BlockBotsClient"
+		],
+		"fabric-datagen": [
+			"net.deadlydiamond98.BlockBotsDatagen"
 		]
 	},
 	"mixins": [
@@ -31,8 +34,8 @@
 	],
 	"depends": {
 		"fabricloader": ">=0.15.10",
-		"minecraft": "~1.20.6",
-		"java": ">=21",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
 		"fabric-api": "*"
 	},
 	"suggests": {
