@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "W": {
+      "item": "block_bots:silicon_wafer"
+    },
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "G": {
+      "item": "minecraft:gold_ingot"
+    }
+  },
+  "pattern": [
+    "WWW",
+    "GDG"
+  ],
+  "result": {
+    "item": "block_bots:processor"
+  },
+  "show_notification": true
+}

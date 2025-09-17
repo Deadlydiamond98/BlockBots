@@ -1,4 +1,4 @@
-package net.deadlydiamond98.entity;
+package net.deadlydiamond98.common.entity;
 
 import net.deadlydiamond98.BlockBots;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 
 public class BlockBotsEntities {
 
-    public static final EntityType<BlockBotEntity> BLOCK_BOT_ENTITY = register("block_bot", create(BlockBotEntity.class, 1, 1));
+    public static final EntityType<MalfunctioningBlockBotEntity> MALFUNCTIONING_BLOCK_BOT_ENTITY = register("malfunctioning_block_bot", create(MalfunctioningBlockBotEntity.class, 1, 1));
 
     public static <T extends Entity> EntityType<T> register(String name, FabricEntityTypeBuilder<T> builder) {
         return Registry.register(Registries.ENTITY_TYPE, new Identifier(BlockBots.MOD_ID, name), builder.build());
@@ -35,7 +35,7 @@ public class BlockBotsEntities {
     }
 
     public static void register() {
-        FabricDefaultAttributeRegistry.register(BLOCK_BOT_ENTITY, BlockBotEntity.createCustomAttributes());
+        FabricDefaultAttributeRegistry.register(MALFUNCTIONING_BLOCK_BOT_ENTITY, MalfunctioningBlockBotEntity.createCustomAttributes());
     }
 
 }

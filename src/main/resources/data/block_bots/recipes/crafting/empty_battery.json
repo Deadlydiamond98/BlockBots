@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "W": {
+      "item": "block_bots:silicon_wafer"
+    },
+    "T": {
+      "item": "block_bots:titanium_nugget"
+    },
+    "C": {
+      "item": "minecraft:copper_ingot"
+    }
+  },
+  "pattern": [
+    "TTT",
+    "CCC",
+    "WWW"
+  ],
+  "result": {
+    "item": "block_bots:empty_battery",
+    "count": 2
+  },
+  "show_notification": true
+}

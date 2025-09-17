@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "B": {
+      "item": "block_bots:empty_battery"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "pattern": [
+    "RRR",
+    "RBR",
+    "RRR"
+  ],
+  "result": {
+    "item": "block_bots:redstone_battery"
+  },
+  "show_notification": true
+}

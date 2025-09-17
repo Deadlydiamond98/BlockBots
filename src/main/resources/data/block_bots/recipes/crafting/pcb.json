@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "block_bots:silicon_wafer"
+    },
+    "G": {
+      "item": "minecraft:gold_nugget"
+    },
+    "D": {
+      "item": "minecraft:green_dye"
+    }
+  },
+  "pattern": [
+    "GGG",
+    "##D",
+    "GGG"
+  ],
+  "result": {
+    "item": "block_bots:pcb"
+  },
+  "show_notification": true
+}
