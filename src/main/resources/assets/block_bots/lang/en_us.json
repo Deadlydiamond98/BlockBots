@@ -14,5 +14,7 @@
 
   "item.block_bots.empty_battery": "Empty Battery",
   "item.block_bots.redstone_battery": "Redstone Battery",
-  "item.block_bots.magmatic_battery": "Magmatic Battery"
+  "item.block_bots.magmatic_battery": "Magmatic Battery",
+
+  "entity.block_bots.faulty_block_bot": "Faulty Block Bot"
 }

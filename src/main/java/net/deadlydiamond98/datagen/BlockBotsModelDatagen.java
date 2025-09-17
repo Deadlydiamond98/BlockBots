@@ -32,7 +32,9 @@ public class BlockBotsModelDatagen extends FabricModelProvider {
                 BlockBotsItems.EMPTY_BATTERY,
                 BlockBotsItems.REDSTONE_BATTERY,
                 BlockBotsItems.MAGMATIC_BATTERY
-
+        );
+        ItemModelDatagenUtil.registerSpawnEggs(itemModelGenerator,
+                BlockBotsItems.FAULTY_BLOCK_BOT_EGG
         );
     }
 }

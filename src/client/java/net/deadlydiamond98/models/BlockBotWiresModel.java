@@ -1,7 +1,7 @@
 package net.deadlydiamond98.models;
 
 import net.deadlydiamond98.BlockBots;
-import net.deadlydiamond98.common.entity.MalfunctioningBlockBotEntity;
+import net.deadlydiamond98.common.entity.FaultyBlockBotEntity;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.EntityModel;
@@ -9,7 +9,7 @@ import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 
-public class BlockBotWiresModel<T extends MalfunctioningBlockBotEntity> extends EntityModel<T> {
+public class BlockBotWiresModel<T extends FaultyBlockBotEntity> extends EntityModel<T> {
 
 	public static final EntityModelLayer LAYER_LOCATION = new EntityModelLayer(new Identifier(BlockBots.MOD_ID, "block_bot_wires"), "main");
 
@@ -99,7 +99,6 @@ public class BlockBotWiresModel<T extends MalfunctioningBlockBotEntity> extends 
 		this.wire8.visible = bls[7];
 		this.wire9.visible = bls[8];
 		this.wire10.visible = bls[9];
-//		BlockBots.LOGGER.info(Arrays.toString(bls));
 	}
 
 	@Override

@@ -1,6 +1,6 @@
 package net.deadlydiamond98.renderer.features;
 
-import net.deadlydiamond98.common.entity.MalfunctioningBlockBotEntity;
+import net.deadlydiamond98.common.entity.IBlockBot;
 import net.deadlydiamond98.models.BlockBotModel;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.OverlayTexture;
@@ -11,24 +11,24 @@ import net.minecraft.client.render.entity.feature.FeatureRenderer;
 import net.minecraft.client.render.entity.feature.FeatureRendererContext;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.Entity;
-import net.minecraft.util.Identifier;
+import net.minecraft.entity.mob.PathAwareEntity;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import org.joml.Matrix3f;
 import org.joml.Matrix4f;
 
-public class BlockBotScreenFeatureRenderer extends FeatureRenderer<MalfunctioningBlockBotEntity, BlockBotModel<MalfunctioningBlockBotEntity>> {
+public class BlockBotScreenFeatureRenderer<T extends PathAwareEntity & IBlockBot<T>> extends FeatureRenderer<T, BlockBotModel<T>> {
 
     protected RenderLayer layer;
     private final int alpha;
     private final float frontOffset;
     private final boolean followPlayer;
 
-    public BlockBotScreenFeatureRenderer(FeatureRendererContext<MalfunctioningBlockBotEntity, BlockBotModel<MalfunctioningBlockBotEntity>> context, RenderLayer layer, int alpha, float frontOffset) {
+    public BlockBotScreenFeatureRenderer(FeatureRendererContext<T, BlockBotModel<T>> context, RenderLayer layer, int alpha, float frontOffset) {
         this(context, layer, alpha, frontOffset, false);
     }
 
-    protected BlockBotScreenFeatureRenderer(FeatureRendererContext<MalfunctioningBlockBotEntity, BlockBotModel<MalfunctioningBlockBotEntity>> context, RenderLayer layer, int alpha, float frontOffset, boolean followPlayer) {
+    protected BlockBotScreenFeatureRenderer(FeatureRendererContext<T, BlockBotModel<T>> context, RenderLayer layer, int alpha, float frontOffset, boolean followPlayer) {
         super(context);
         this.layer = layer;
         this.alpha = alpha;
@@ -37,7 +37,7 @@ public class BlockBotScreenFeatureRenderer extends FeatureRenderer<Malfunctionin
     }
 
     @Override
-    public void render(MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, MalfunctioningBlockBotEntity entity, float limbAngle, float limbDistance, float tickDelta, float animationProgress, float headYaw, float headPitch) {
+    public void render(MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, T entity, float limbAngle, float limbDistance, float tickDelta, float animationProgress, float headYaw, float headPitch) {
         matrices.push();
 
         double ViewOffset = getViewingOffset(entity) * 0.03;
@@ -57,7 +57,7 @@ public class BlockBotScreenFeatureRenderer extends FeatureRenderer<Malfunctionin
         matrices.pop();
     }
 
-    private double getViewingOffset(MalfunctioningBlockBotEntity entity) {
+    private double getViewingOffset(T entity) {
 
         Entity viewedEntity = MinecraftClient.getInstance().getCameraEntity();
 
@@ -90,7 +90,7 @@ public class BlockBotScreenFeatureRenderer extends FeatureRenderer<Malfunctionin
                 .next();
     }
 
-    protected RenderLayer getRenderLayer(MalfunctioningBlockBotEntity entity) {
+    protected RenderLayer getRenderLayer(T entity) {
         return layer;
     }
 }

@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 
 public class BlockBotsEntities {
 
-    public static final EntityType<MalfunctioningBlockBotEntity> MALFUNCTIONING_BLOCK_BOT_ENTITY = register("malfunctioning_block_bot", create(MalfunctioningBlockBotEntity.class, 1, 1));
+    public static final EntityType<FaultyBlockBotEntity> FAULTY_BLOCK_BOT_ENTITY = register("faulty_block_bot", create(FaultyBlockBotEntity.class, 0.75f, 0.75f));
 
     public static <T extends Entity> EntityType<T> register(String name, FabricEntityTypeBuilder<T> builder) {
         return Registry.register(Registries.ENTITY_TYPE, new Identifier(BlockBots.MOD_ID, name), builder.build());
@@ -35,7 +35,7 @@ public class BlockBotsEntities {
     }
 
     public static void register() {
-        FabricDefaultAttributeRegistry.register(MALFUNCTIONING_BLOCK_BOT_ENTITY, MalfunctioningBlockBotEntity.createCustomAttributes());
+        FabricDefaultAttributeRegistry.register(FAULTY_BLOCK_BOT_ENTITY, FaultyBlockBotEntity.createCustomAttributes());
     }
 
 }
