@@ -161,7 +161,7 @@ public class FaultyBlockBotEntity extends HostileEntity implements IBlockBot<Fau
     @Override
     protected void drop(DamageSource source) {
         super.drop(source);
-        if (this.isMossy()) {
+        if (this.isMossy() && this.getRandom().nextFloat() <= 0.4) {
             dropItem(Blocks.MOSS_CARPET.asItem());
         }
     }
@@ -186,7 +186,7 @@ public class FaultyBlockBotEntity extends HostileEntity implements IBlockBot<Fau
     private Integer getWiresInitial() {
         int wireNum = 0;
         for (int i = 0; i < 10; i++) {
-            int digit = this.getRandom().nextFloat() <= 0.5f ? 2 : 1;
+            int digit = this.getRandom().nextFloat() <= 0.3f ? 2 : 1;
             wireNum += (int) (digit * Math.pow(10, i));
         }
         return wireNum;

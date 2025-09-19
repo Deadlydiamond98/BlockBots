@@ -1,6 +1,7 @@
 package net.deadlydiamond98;
 
 import net.deadlydiamond98.common.entity.BlockBotsEntities;
+import net.deadlydiamond98.events.BlockBotsItemTooltipEvents;
 import net.deadlydiamond98.models.BlockBotModel;
 import net.deadlydiamond98.models.BlockBotMossModel;
 import net.deadlydiamond98.models.BlockBotWiresModel;
@@ -21,5 +22,8 @@ public class BlockBotsClient implements ClientModInitializer {
 		EntityModelLayerRegistry.registerModelLayer(BlockBotModel.LAYER_LOCATION, BlockBotModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(BlockBotWiresModel.LAYER_LOCATION, BlockBotWiresModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(BlockBotMossModel.LAYER_LOCATION, BlockBotMossModel::getTexturedModelData);
+
+		// Events
+		BlockBotsItemTooltipEvents.register();
 	}
 }

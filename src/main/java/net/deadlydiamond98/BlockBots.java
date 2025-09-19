@@ -3,6 +3,7 @@ package net.deadlydiamond98;
 import net.deadlydiamond98.common.blocks.BlockBotsBlocks;
 import net.deadlydiamond98.common.entity.BlockBotsEntities;
 import net.deadlydiamond98.common.items.BlockBotsItems;
+import net.deadlydiamond98.common.misc.BlockBotsFeatures;
 import net.deadlydiamond98.common.misc.BlockBotsTab;
 import net.fabricmc.api.ModInitializer;
 
@@ -22,5 +23,6 @@ public class BlockBots implements ModInitializer {
 		BlockBotsBlocks.register();
 		BlockBotsEntities.register();
 		BlockBotsTab.register();
+		BlockBotsFeatures.register();
 	}
 }

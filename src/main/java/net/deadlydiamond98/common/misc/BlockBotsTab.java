@@ -18,6 +18,10 @@ public class BlockBotsTab {
 
                 // Items
 
+                entry.add(BlockBotsBlocks.QUARTZ_ORE);
+                entry.add(BlockBotsBlocks.DEEPSLATE_QUARTZ_ORE);
+                entry.add(BlockBotsItems.QUARTZ_POWDER);
+
                 entry.add(BlockBotsItems.TITANIUM_SCRAPS);
                 entry.add(BlockBotsItems.TITANIUM_NUGGET);
                 entry.add(BlockBotsItems.TITANIUM_INGOT);
@@ -25,14 +29,15 @@ public class BlockBotsTab {
 
                 entry.add(BlockBotsItems.SILICON_CRYSTALS);
                 entry.add(BlockBotsItems.SILICON_WAFER);
+
                 entry.add(BlockBotsItems.PROCESSOR);
                 entry.add(BlockBotsItems.PCB);
+                entry.add(BlockBotsItems.WIRES);
+                entry.add(BlockBotsItems.SCREEN);
 
-                entry.add(BlockBotsItems.EMPTY_BATTERY);
+                entry.add(BlockBotsItems.BATTERY);
                 entry.add(BlockBotsItems.REDSTONE_BATTERY);
                 entry.add(BlockBotsItems.MAGMATIC_BATTERY);
-
-                // Blocks
 
 
 

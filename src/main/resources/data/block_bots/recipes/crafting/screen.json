@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "S": {
+      "item": "block_bots:silicon_crystals"
+    },
+    "#": {
+      "item": "block_bots:silicon_wafer"
+    },
+    "G": {
+      "item": "minecraft:glowstone"
+    },
+    "W": {
+      "item": "block_bots:wires"
+    }
+  },
+  "pattern": [
+    "#SS",
+    "#GW",
+    "#SS"
+  ],
+  "result": {
+    "item": "block_bots:screen",
+    "count": 1
+  },
+  "show_notification": true
+}

@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "block_bots:titanium_block",
+    "block_bots:quartz_ore",
+    "block_bots:deepslate_quartz_ore"
+  ]
+}

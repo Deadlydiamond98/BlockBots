@@ -12,13 +12,13 @@
     }
   },
   "pattern": [
-    "TTT",
-    "CCC",
-    "WWW"
+    "T",
+    "C",
+    "W"
   ],
   "result": {
     "item": "block_bots:empty_battery",
-    "count": 2
+    "count": 1
   },
   "show_notification": true
 }

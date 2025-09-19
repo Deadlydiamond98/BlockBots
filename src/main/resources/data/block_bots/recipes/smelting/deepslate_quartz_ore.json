@@ -4,7 +4,7 @@
   "cookingtime": 200,
   "experience": 0.7,
   "ingredient": {
-    "item": "block_bots:quartz_powder"
+    "item": "block_bots:deepslate_quartz_ore"
   },
-  "result": "block_bots:silicon_crystals"
+  "result": "minecraft:quartz"
 }

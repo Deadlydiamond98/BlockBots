@@ -1,18 +1,25 @@
 {
   "itemgroup.block_bots": "Block Bots",
 
+  "item.block_bots.energy.title": "Battery Life:",
+
   "item.block_bots.titanium_scrap": "Titanium Scrap",
   "item.block_bots.titanium_nugget": "Titanium Nugget",
   "item.block_bots.titanium_ingot": "Titanium Ingot",
-
   "block.block_bots.titanium_block": "Titanium Block",
+
+  "item.block_bots.quartz_powder": "Quartz Powder",
+  "block.block_bots.quartz_ore": "Quartz Ore",
+  "block.block_bots.deepslate_quartz_ore": "Deepslate Quartz Ore",
 
   "item.block_bots.silicon_crystals": "Silicon Crystals",
   "item.block_bots.silicon_wafer": "Silicon Wafer",
   "item.block_bots.processor": "Processor",
   "item.block_bots.pcb": "PCB",
+  "item.block_bots.wires": "Wires",
+  "item.block_bots.screen": "Screen",
 
-  "item.block_bots.empty_battery": "Empty Battery",
+  "item.block_bots.battery": "Disposable Battery",
   "item.block_bots.redstone_battery": "Redstone Battery",
   "item.block_bots.magmatic_battery": "Magmatic Battery",
 

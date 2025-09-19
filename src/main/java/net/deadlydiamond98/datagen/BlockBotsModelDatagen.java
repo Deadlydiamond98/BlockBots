@@ -17,6 +17,8 @@ public class BlockBotsModelDatagen extends FabricModelProvider {
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
         blockStateModelGenerator.registerSimpleCubeAll(BlockBotsBlocks.TITANIUM_BLOCK);
+        blockStateModelGenerator.registerSimpleCubeAll(BlockBotsBlocks.QUARTZ_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(BlockBotsBlocks.DEEPSLATE_QUARTZ_ORE);
     }
 
     @Override
@@ -25,11 +27,14 @@ public class BlockBotsModelDatagen extends FabricModelProvider {
                 BlockBotsItems.TITANIUM_SCRAPS,
                 BlockBotsItems.TITANIUM_NUGGET,
                 BlockBotsItems.TITANIUM_INGOT,
+                BlockBotsItems.QUARTZ_POWDER,
                 BlockBotsItems.SILICON_CRYSTALS,
                 BlockBotsItems.SILICON_WAFER,
                 BlockBotsItems.PROCESSOR,
                 BlockBotsItems.PCB,
-                BlockBotsItems.EMPTY_BATTERY,
+                BlockBotsItems.WIRES,
+                BlockBotsItems.SCREEN,
+                BlockBotsItems.BATTERY,
                 BlockBotsItems.REDSTONE_BATTERY,
                 BlockBotsItems.MAGMATIC_BATTERY
         );

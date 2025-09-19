@@ -2,6 +2,7 @@ package net.deadlydiamond98.common.items;
 
 import net.deadlydiamond98.BlockBots;
 import net.deadlydiamond98.common.entity.BlockBotsEntities;
+import net.deadlydiamond98.common.items.battery.DisposableBatteryItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.mob.MobEntity;
@@ -21,12 +22,13 @@ public class BlockBotsItems {
 
     // SILICON
 
+    public static final Item QUARTZ_POWDER = register("quartz_powder", new Item(new FabricItemSettings()));
     public static final Item SILICON_CRYSTALS = register("silicon_crystals", new Item(new FabricItemSettings()));
     public static final Item SILICON_WAFER = register("silicon_wafer", new Item(new FabricItemSettings()));
 
     // BATTERIES
 
-    public static final Item EMPTY_BATTERY = register("empty_battery", new Item(new FabricItemSettings()));
+    public static final Item BATTERY = register("battery", new DisposableBatteryItem(new FabricItemSettings().maxCount(1)));
     public static final Item REDSTONE_BATTERY = register("redstone_battery", new Item(new FabricItemSettings()));
     public static final Item MAGMATIC_BATTERY = register("magmatic_battery", new Item(new FabricItemSettings()));
 
@@ -34,6 +36,8 @@ public class BlockBotsItems {
 
     public static final Item PROCESSOR = register("processor", new Item(new FabricItemSettings()));
     public static final Item PCB = register("pcb", new Item(new FabricItemSettings()));
+    public static final Item WIRES = register("wires", new Item(new FabricItemSettings()));
+    public static final Item SCREEN = register("screen", new Item(new FabricItemSettings()));
 
     public static final Item FAULTY_BLOCK_BOT_EGG = registerSpawnEgg(BlockBotsEntities.FAULTY_BLOCK_BOT_ENTITY, 0xCCEAF6, 0x954D30);
 
