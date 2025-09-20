@@ -1,4 +1,4 @@
-// 1.20.1	2025-09-19T01:25:13.242668087	Block Bots/Model Definitions
+// 1.20.1	2025-09-19T15:32:11.745429714	Block Bots/Model Definitions
 9472967352abe3135309959993720ab49b888785 assets/block_bots/models/item/battery.json
 c03e2155a734105d6b9c0114c438e7b9ba62f654 assets/block_bots/models/item/deepslate_quartz_ore.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/block_bots/models/item/faulty_block_bot_spawn_egg.json
@@ -13,10 +13,10 @@ b6c68c569ef91d1a732ff0cd972f739ceead5b8c assets/block_bots/blockstates/titanium_
 825297bd473168285660ebfb80d1a801d252f741 assets/block_bots/blockstates/quartz_ore.json
 7f0508462a8d368f0947c0a46be70054d3932d31 assets/block_bots/models/block/deepslate_quartz_ore.json
 6e17f37ecd399f54cd6d55125c7bf6f926655be9 assets/block_bots/models/item/redstone_battery.json
-b86d1873bd80db909026c786bac280905c6f3b72 assets/block_bots/blockstates/deepslate_quartz_ore.json
-6f31b4dcce85f2ff391fd03b6b320c155352f410 assets/block_bots/models/item/quartz_powder.json
 6be411b7cedc25dfb81816bebfa218860f7f104a assets/block_bots/models/item/screen.json
+b86d1873bd80db909026c786bac280905c6f3b72 assets/block_bots/blockstates/deepslate_quartz_ore.json
 023878d5238cdcc64c4fd6d157e9f6c3b9020183 assets/block_bots/models/item/pcb.json
+ee9981a9b09580e805de0d291ffcc9a52567f0f5 assets/block_bots/models/item/crushed_quartz.json
 b399d5f333350de45fbf299253266e1e270167fe assets/block_bots/models/item/wires.json
 acf5530bf44cd677fcbfb71638ef37f0283cdd1e assets/block_bots/models/item/silicon_crystals.json
 fafe5de5ef8370791c40e82acafe5c365c2747b7 assets/block_bots/models/block/quartz_ore.json

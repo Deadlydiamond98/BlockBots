@@ -1,9 +1,9 @@
-package net.deadlydiamond98.renderer.features;
+package net.deadlydiamond98.renderer.features.screen;
 
-import net.deadlydiamond98.common.entity.IBlockBot;
+import net.deadlydiamond98.common.entity.base.BaseBlockBotEntity;
 import net.deadlydiamond98.models.BlockBotModel;
+import net.deadlydiamond98.renderer.IBotScreenRenderer;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.VertexConsumerProvider;
@@ -11,24 +11,23 @@ import net.minecraft.client.render.entity.feature.FeatureRenderer;
 import net.minecraft.client.render.entity.feature.FeatureRendererContext;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.mob.PathAwareEntity;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
-import org.joml.Matrix3f;
-import org.joml.Matrix4f;
 
-public class BlockBotScreenFeatureRenderer<T extends PathAwareEntity & IBlockBot<T>> extends FeatureRenderer<T, BlockBotModel<T>> {
+public class BlockBotScreenFeatureRenderer<T extends BaseBlockBotEntity> extends FeatureRenderer<T, BlockBotModel<T>> implements IBotScreenRenderer {
+
+    // TODO: THIS PROBABLY NEEDS CLEAN UP
 
     protected RenderLayer layer;
-    private final int alpha;
+    private final boolean alpha;
     private final float frontOffset;
     private final boolean followPlayer;
 
-    public BlockBotScreenFeatureRenderer(FeatureRendererContext<T, BlockBotModel<T>> context, RenderLayer layer, int alpha, float frontOffset) {
+    public BlockBotScreenFeatureRenderer(FeatureRendererContext<T, BlockBotModel<T>> context, RenderLayer layer, boolean alpha, float frontOffset) {
         this(context, layer, alpha, frontOffset, false);
     }
 
-    protected BlockBotScreenFeatureRenderer(FeatureRendererContext<T, BlockBotModel<T>> context, RenderLayer layer, int alpha, float frontOffset, boolean followPlayer) {
+    protected BlockBotScreenFeatureRenderer(FeatureRendererContext<T, BlockBotModel<T>> context, RenderLayer layer, boolean alpha, float frontOffset, boolean followPlayer) {
         super(context);
         this.layer = layer;
         this.alpha = alpha;
@@ -40,19 +39,16 @@ public class BlockBotScreenFeatureRenderer<T extends PathAwareEntity & IBlockBot
     public void render(MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, T entity, float limbAngle, float limbDistance, float tickDelta, float animationProgress, float headYaw, float headPitch) {
         matrices.push();
 
-        double ViewOffset = getViewingOffset(entity) * 0.03;
+        double viewOffset = getViewingOffset(entity) * 0.03;
 
-        matrices.translate(-0.5 + ViewOffset, 0.625, -0.34375);
+        matrices.translate(-0.5 + viewOffset, 0.625, -0.34375);
         matrices.translate(0.5, 0.5, 0);
         matrices.scale(0.5625f, 0.5625f, 1);
         matrices.translate(-0.5, -0.5, 0);
 
         VertexConsumer vertexConsumerNumber = vertexConsumers.getBuffer(getRenderLayer(entity));
-        MatrixStack.Entry entry = matrices.peek();
-        Matrix4f matrix4f = entry.getPositionMatrix();
-        Matrix3f matrix3f = entry.getNormalMatrix();
 
-        renderFace(vertexConsumerNumber, matrix4f, matrix3f, this.alpha, 0, 0.5625f, 0, 0.5625f, this.frontOffset, light);
+        renderFace(vertexConsumerNumber, matrices, Math.min(255, Math.max(0, this.alpha ? entity.getScreenAlpha(entity) : 255)), 0, 0.5625f, 0, 0.5625f, this.frontOffset, light);
 
         matrices.pop();
     }
@@ -71,23 +67,6 @@ public class BlockBotScreenFeatureRenderer<T extends PathAwareEntity & IBlockBot
             return MathHelper.sqrt((float)Math.abs(e)) * 2 * (float)Math.signum(e);
         }
         return 0;
-    }
-
-    private static void renderFace(VertexConsumer vertexConsumer, Matrix4f positionMatrix, Matrix3f normalMatrix, int alpha, float minU, float maxU, float minV, float maxV, float z, int i) {
-        vertex(vertexConsumer, positionMatrix, normalMatrix, 0, 1, z, alpha, minU, maxV, i);
-        vertex(vertexConsumer, positionMatrix, normalMatrix, 1, 1, z, alpha, maxU, maxV, i);
-        vertex(vertexConsumer, positionMatrix, normalMatrix, 1, 0, z, alpha, maxU, minV, i);
-        vertex(vertexConsumer, positionMatrix, normalMatrix, 0, 0, z, alpha, minU, minV, i);
-    }
-
-    private static void vertex(VertexConsumer vertexConsumer, Matrix4f positionMatrix, Matrix3f normalMatrix, float x, float y, float z, int alpha, float u, float v, int light) {
-        vertexConsumer.vertex(positionMatrix, x, y, z)
-                .color(255, 255, 255, alpha)
-                .texture(u, v)
-                .overlay(OverlayTexture.DEFAULT_UV)
-                .light(light)
-                .normal(normalMatrix, 0.0f, 1.0f, 0.0f)
-                .next();
     }
 
     protected RenderLayer getRenderLayer(T entity) {

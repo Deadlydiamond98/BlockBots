@@ -1,7 +1,7 @@
 package net.deadlydiamond98.models;
 
 import net.deadlydiamond98.BlockBots;
-import net.deadlydiamond98.common.entity.FaultyBlockBotEntity;
+import net.deadlydiamond98.common.entity.hostile.FaultyBlockBotEntity;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.EntityModel;

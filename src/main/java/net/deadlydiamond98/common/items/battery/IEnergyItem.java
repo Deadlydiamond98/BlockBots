@@ -1,6 +1,6 @@
 package net.deadlydiamond98.common.items.battery;
 
-import net.deadlydiamond98.util.TempColorUtil;
+import net.deadlydiamond98.koalalib.util.ColorHelper;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 
@@ -40,6 +40,6 @@ public interface IEnergyItem extends IBatteryIndicator {
     }
 
     default int getTextColor(ItemStack stack) {
-        return TempColorUtil.blend(0xAD0000, 0x2BFF00, (float) getBatteryLvl(stack) / getMaxCharge());
+        return ColorHelper.blendHexColors(0xAD0000, 0x2BFF00, (float) getBatteryLvl(stack) / getMaxCharge());
     }
 }

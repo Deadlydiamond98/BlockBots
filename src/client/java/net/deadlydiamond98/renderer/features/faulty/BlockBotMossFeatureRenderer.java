@@ -1,7 +1,7 @@
-package net.deadlydiamond98.renderer.features;
+package net.deadlydiamond98.renderer.features.faulty;
 
 import net.deadlydiamond98.BlockBots;
-import net.deadlydiamond98.common.entity.IBlockBot;
+import net.deadlydiamond98.common.entity.base.BaseBlockBotEntity;
 import net.deadlydiamond98.models.BlockBotModel;
 import net.deadlydiamond98.models.BlockBotMossModel;
 import net.minecraft.client.render.OverlayTexture;
@@ -12,10 +12,9 @@ import net.minecraft.client.render.entity.feature.FeatureRenderer;
 import net.minecraft.client.render.entity.feature.FeatureRendererContext;
 import net.minecraft.client.render.entity.model.EntityModelLoader;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.entity.mob.PathAwareEntity;
 import net.minecraft.util.Identifier;
 
-public class BlockBotMossFeatureRenderer<T extends PathAwareEntity & IBlockBot<T>> extends FeatureRenderer<T, BlockBotModel<T>> {
+public class BlockBotMossFeatureRenderer<T extends BaseBlockBotEntity> extends FeatureRenderer<T, BlockBotModel<T>> {
 
     private final BlockBotMossModel<T> model;
 

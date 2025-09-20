@@ -2,6 +2,36 @@
   "type": "minecraft:entity",
   "pools": [
     {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "block_bots:battery",
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance_with_looting",
+              "chance": 0.05,
+              "looting_multiplier": 0.05
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": {
+        "type": "minecraft:uniform",
+        "min": 0,
+        "max": 1
+      },
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "block_bots:wires",
+          "functions": []
+        }
+      ]
+    },
+    {
       "bonus_rolls": 0,
       "entries": [
         {
@@ -20,7 +50,17 @@
           "name": "block_bots:titanium_scrap"
         }
       ],
-      "rolls": 1
+      "rolls": 1,
+      "functions": [
+        {
+          "function": "minecraft:looting_enchant",
+          "count": {
+            "type": "minecraft:uniform",
+            "min": 0,
+            "max": 2
+          }
+        }
+      ]
     }
   ]
 }

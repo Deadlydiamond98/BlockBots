@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "block_bots:block/generator_bot",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "block_bots:block/generator_bot"
+    },
+    "facing=south": {
+      "model": "block_bots:block/generator_bot",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "block_bots:block/generator_bot",
+      "y": 270
+    }
+  }
+}

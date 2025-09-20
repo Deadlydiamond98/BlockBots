@@ -1,16 +1,15 @@
 package net.deadlydiamond98.models;
 
 import net.deadlydiamond98.BlockBots;
-import net.deadlydiamond98.common.entity.IBlockBot;
+import net.deadlydiamond98.common.entity.base.BaseBlockBotEntity;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.entity.mob.PathAwareEntity;
 import net.minecraft.util.Identifier;
 
-public class BlockBotMossModel<T extends PathAwareEntity & IBlockBot<T>> extends EntityModel<T> {
+public class BlockBotMossModel<T extends BaseBlockBotEntity> extends EntityModel<T> {
 
 	public static final EntityModelLayer LAYER_LOCATION = new EntityModelLayer(new Identifier(BlockBots.MOD_ID, "block_bot_moss"), "main");
 

@@ -1,5 +1,6 @@
 package net.deadlydiamond98;
 
+import net.deadlydiamond98.common.blocks.BlockBotsBlockEntities;
 import net.deadlydiamond98.common.blocks.BlockBotsBlocks;
 import net.deadlydiamond98.common.entity.BlockBotsEntities;
 import net.deadlydiamond98.common.items.BlockBotsItems;
@@ -21,6 +22,7 @@ public class BlockBots implements ModInitializer {
 	public void onInitialize() {
 		BlockBotsItems.register();
 		BlockBotsBlocks.register();
+		BlockBotsBlockEntities.register();
 		BlockBotsEntities.register();
 		BlockBotsTab.register();
 		BlockBotsFeatures.register();

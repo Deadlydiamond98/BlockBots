@@ -1,7 +1,7 @@
-package net.deadlydiamond98.renderer.features;
+package net.deadlydiamond98.renderer.features.faulty;
 
 import net.deadlydiamond98.BlockBots;
-import net.deadlydiamond98.common.entity.FaultyBlockBotEntity;
+import net.deadlydiamond98.common.entity.hostile.FaultyBlockBotEntity;
 import net.deadlydiamond98.models.BlockBotModel;
 import net.deadlydiamond98.models.BlockBotWiresModel;
 import net.minecraft.client.render.OverlayTexture;

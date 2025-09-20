@@ -4,9 +4,11 @@ import net.deadlydiamond98.BlockBots;
 import net.deadlydiamond98.common.entity.BlockBotsEntities;
 import net.deadlydiamond98.common.items.battery.DisposableBatteryItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroups;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -22,7 +24,8 @@ public class BlockBotsItems {
 
     // SILICON
 
-    public static final Item QUARTZ_POWDER = register("quartz_powder", new Item(new FabricItemSettings()));
+//    public static final Item QUARTZ_POWDER = register("quartz_powder", new Item(new FabricItemSettings()));
+    public static final Item CRUSHED_QUARTZ = register("crushed_quartz", new Item(new FabricItemSettings()));
     public static final Item SILICON_CRYSTALS = register("silicon_crystals", new Item(new FabricItemSettings()));
     public static final Item SILICON_WAFER = register("silicon_wafer", new Item(new FabricItemSettings()));
 
@@ -41,11 +44,11 @@ public class BlockBotsItems {
 
     public static final Item FAULTY_BLOCK_BOT_EGG = registerSpawnEgg(BlockBotsEntities.FAULTY_BLOCK_BOT_ENTITY, 0xCCEAF6, 0x954D30);
 
+
     public static Item registerSpawnEgg(EntityType<? extends MobEntity> type, int primaryColor, int secondaryColor) {
-        return register(
-                Registries.ENTITY_TYPE.getId(type).getPath() + "_spawn_egg",
-                new SpawnEggItem(type, primaryColor, secondaryColor, new FabricItemSettings())
-        );
+        Item egg = register(Registries.ENTITY_TYPE.getId(type).getPath() + "_spawn_egg", new SpawnEggItem(type, primaryColor, secondaryColor, new FabricItemSettings()));
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.SPAWN_EGGS).register(entries -> entries.add(egg));
+        return egg;
     }
 
     public static Item register(String name, Item item) {

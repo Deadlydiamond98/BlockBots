@@ -1,14 +1,14 @@
-package net.deadlydiamond98.renderer;
+package net.deadlydiamond98.renderer.entity;
 
 import net.deadlydiamond98.BlockBots;
-import net.deadlydiamond98.common.entity.FaultyBlockBotEntity;
-import net.deadlydiamond98.renderer.features.BlockBotWiresFeatureRenderer;
+import net.deadlydiamond98.common.entity.hostile.FaultyBlockBotEntity;
+import net.deadlydiamond98.renderer.features.faulty.BlockBotWiresFeatureRenderer;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.util.Identifier;
 
-public class WeatheredBlockBot extends BlockBotRenderer<FaultyBlockBotEntity> {
+public class FaultyBlockBotRenderer extends BlockBotRenderer<FaultyBlockBotEntity> {
 
-    public WeatheredBlockBot(EntityRendererFactory.Context context) {
+    public FaultyBlockBotRenderer(EntityRendererFactory.Context context) {
         super(context);
     }
 

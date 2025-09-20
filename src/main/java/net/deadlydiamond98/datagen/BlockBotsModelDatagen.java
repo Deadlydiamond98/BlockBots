@@ -27,7 +27,7 @@ public class BlockBotsModelDatagen extends FabricModelProvider {
                 BlockBotsItems.TITANIUM_SCRAPS,
                 BlockBotsItems.TITANIUM_NUGGET,
                 BlockBotsItems.TITANIUM_INGOT,
-                BlockBotsItems.QUARTZ_POWDER,
+                BlockBotsItems.CRUSHED_QUARTZ,
                 BlockBotsItems.SILICON_CRYSTALS,
                 BlockBotsItems.SILICON_WAFER,
                 BlockBotsItems.PROCESSOR,

@@ -20,7 +20,7 @@ public class BlockBotsTab {
 
                 entry.add(BlockBotsBlocks.QUARTZ_ORE);
                 entry.add(BlockBotsBlocks.DEEPSLATE_QUARTZ_ORE);
-                entry.add(BlockBotsItems.QUARTZ_POWDER);
+                entry.add(BlockBotsItems.CRUSHED_QUARTZ);
 
                 entry.add(BlockBotsItems.TITANIUM_SCRAPS);
                 entry.add(BlockBotsItems.TITANIUM_NUGGET);
