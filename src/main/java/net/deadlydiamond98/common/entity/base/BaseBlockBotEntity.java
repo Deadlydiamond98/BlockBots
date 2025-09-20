@@ -73,7 +73,7 @@ public class BaseBlockBotEntity extends PathAwareEntity implements IBotScreenDis
     @Override
     public Identifier getEyeTexture(BaseBlockBotEntity entity) {
         if (this.ouchieTicks > 0) {
-            return new Identifier(BlockBots.MOD_ID, "textures/face/eye/ouchie.png");
+            return getEye("ouchie");
         }
         return IBotScreenDisplay.super.getEyeTexture(entity);
     }

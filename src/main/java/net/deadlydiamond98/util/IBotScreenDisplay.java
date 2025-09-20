@@ -1,6 +1,7 @@
 package net.deadlydiamond98.util;
 
 import net.deadlydiamond98.BlockBots;
+import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.util.Identifier;
 
 public interface IBotScreenDisplay<T> {
@@ -9,21 +10,35 @@ public interface IBotScreenDisplay<T> {
         return 25;
     }
 
+    // HELPER
+
+    default String getTypePath() {
+        return this instanceof BlockEntity ? "block" : "entity";
+    }
+    default Identifier getScreen(String type) {
+        return new Identifier(BlockBots.MOD_ID, "textures/screen/" + getTypePath() + "/" + type + ".png");
+    }
+    default Identifier getEye(String type) {
+        return new Identifier(BlockBots.MOD_ID, "textures/screen/face/eye/" + type + ".png");
+    }
+    default Identifier getMouth(String type) {
+        return new Identifier(BlockBots.MOD_ID, "textures/screen/face/mouth/" + type + ".png");
+    }
+
     // SCREEN
 
     default Identifier getOnTexture() {
-        return new Identifier(BlockBots.MOD_ID,"textures/block/block_bot/screen/powered.png");
+        return getScreen("powered");
     }
 
     default Identifier getOffTexture() {
-        return new Identifier(BlockBots.MOD_ID,"textures/block/block_bot/screen/off.png");
+        return getScreen("off");
     }
 
     // EYES
 
     default Identifier getEyeTexture(T entity) {
-        String type = isBlinking(entity) ? "blink" : "regular";
-        return new Identifier(BlockBots.MOD_ID, "textures/face/eye/" + type + ".png");
+        return getEye(isBlinking(entity) ? "blink" : "regular");
     }
 
     default boolean eyesFollowPlayer(T entity) {
@@ -39,7 +54,7 @@ public interface IBotScreenDisplay<T> {
     // MOUTH
 
     default Identifier getMouthTexture(T entity) {
-        return new Identifier(BlockBots.MOD_ID, "textures/face/mouth/line.png");
+        return getMouth("line");
     }
 
     default boolean showMouth(T entity) {

@@ -73,7 +73,7 @@ public class AliveBlockEntityRenderer<T extends AbstractBotBlockEntity> implemen
     }
 
     // Method pulled from entity class
-    protected final Vec3d getRotationVector(float yaw) {
+    private Vec3d getRotationVector(float yaw) {
         float g = -yaw * 0.017453292F;
         float h = MathHelper.cos(g);
         float i = MathHelper.sin(g);

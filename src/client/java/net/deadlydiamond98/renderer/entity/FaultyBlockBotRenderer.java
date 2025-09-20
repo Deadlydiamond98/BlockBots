@@ -10,12 +10,7 @@ public class FaultyBlockBotRenderer extends BlockBotRenderer<FaultyBlockBotEntit
 
     public FaultyBlockBotRenderer(EntityRendererFactory.Context context) {
         super(context);
-    }
-
-    @Override
-    protected void initFeatures(EntityRendererFactory.Context context) {
         addFeature(new BlockBotWiresFeatureRenderer(this, context.getModelLoader()));
-        super.initFeatures(context);
     }
 
     @Override
