@@ -33,7 +33,7 @@ public class AliveBlockEntityRenderer<T extends AbstractBotBlockEntity> implemen
 
         matrices.push();
         if (entity.eyesFollowPlayer(entity)) {
-            double viewOffset = getViewingOffset(entity) * 0.03;
+            double viewOffset = getViewingOffset(entity) * 0.045;
             matrices.translate(viewOffset, 0, 0);
         }
         offset = renderFace(glowLayer(entity.getEyeTexture(entity), vCon), matrices, 255, offset, light);

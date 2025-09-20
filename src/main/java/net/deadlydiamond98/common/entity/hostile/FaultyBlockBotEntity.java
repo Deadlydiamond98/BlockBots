@@ -20,10 +20,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.registry.tag.FluidTags;
 import net.minecraft.sound.SoundCategory;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.*;
-import net.minecraft.world.dimension.DimensionType;
 import org.jetbrains.annotations.Nullable;
 
 public class FaultyBlockBotEntity extends BaseBlockBotEntity {
@@ -131,10 +131,20 @@ public class FaultyBlockBotEntity extends BaseBlockBotEntity {
         return bl && random.nextFloat() <= 0.4 || bl2;
     }
 
-    // Eye Changing
+    // Screen
 
-    public boolean isTargeting() {
-        return this.dataTracker.get(TARGETING);
+
+    @Override
+    public Identifier getOnTexture() {
+        return getScreen("red");
+    }
+
+    @Override
+    public Identifier getEyeTexture(BaseBlockBotEntity entity) {
+        if (this.dataTracker.get(TARGETING) && this.ouchieTicks <= 0) {
+            return getEye("mean");
+        }
+        return super.getEyeTexture(entity);
     }
 
     // Wires
