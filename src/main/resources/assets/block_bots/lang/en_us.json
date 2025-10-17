@@ -14,15 +14,37 @@
 
   "item.block_bots.silicon_crystals": "Silicon Crystals",
   "item.block_bots.silicon_wafer": "Silicon Wafer",
+
   "item.block_bots.processor": "Processor",
   "item.block_bots.pcb": "PCB",
   "item.block_bots.wires": "Wires",
+  "item.block_bots.spectrum_tube": "Spectrum Tube",
   "item.block_bots.screen": "Screen",
 
   "item.block_bots.battery": "Disposable Battery",
   "item.block_bots.redstone_battery": "Redstone Battery",
   "item.block_bots.magmatic_battery": "Magmatic Battery",
 
+  "block.block_bots.chest_marker": "Chest Marker",
+
+  "block.block_bots.generator_bot": "Combustion Generator Bot",
+
+  "block.block_bots.titanium_forge": "Titanium Forge",
+  "block_bots.titanium_forge": "Titanium Forge",
+
   "entity.block_bots.faulty_block_bot": "Faulty Block Bot",
-  "item.block_bots.faulty_block_bot_spawn_egg": "Faulty Block Bot Spawn Egg"
+  "entity.block_bots.block_bot": "Block Bot",
+  "entity.block_bots.block_bot_collector": "Block Bot Collector",
+  "entity.block_bots.block_bot_farmer": "Block Bot Farmer",
+  "entity.block_bots.block_bot_healer": "Block Bot Healer",
+  "entity.block_bots.block_bot_fighter": "Block Bot Fighter",
+  "entity.block_bots.block_bot_lumberjack": "Block Bot Lumberjack",
+  "entity.block_bots.block_bot_creeper": "Block Bot Creeper",
+  "entity.block_bots.block_bot_archer": "Block Bot Archer",
+  "entity.block_bots.block_bot_miner": "Block Bot Miner",
+
+  "entity.block_bots.follow_state": "Block Bot is now ",
+  "entity.block_bots.follow_state.follow": "Following",
+  "entity.block_bots.follow_state.wander": "Wandering",
+  "entity.block_bots.follow_state.sit": "Staying"
 }

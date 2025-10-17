@@ -17,7 +17,7 @@
     "W"
   ],
   "result": {
-    "item": "block_bots:empty_battery",
+    "item": "block_bots:battery",
     "count": 1
   },
   "show_notification": true

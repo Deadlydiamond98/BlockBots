@@ -4,17 +4,23 @@ import net.deadlydiamond98.BlockBots;
 import net.deadlydiamond98.common.entity.BlockBotsEntities;
 import net.deadlydiamond98.common.items.battery.DisposableBatteryItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroups;
-import net.minecraft.item.SpawnEggItem;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class BlockBotsItems {
+
+    public static final List<Item> EGGS = new ArrayList<>();
+
+    // FOODS
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     // TITANIUM
 
@@ -29,12 +35,6 @@ public class BlockBotsItems {
     public static final Item SILICON_CRYSTALS = register("silicon_crystals", new Item(new FabricItemSettings()));
     public static final Item SILICON_WAFER = register("silicon_wafer", new Item(new FabricItemSettings()));
 
-    // BATTERIES
-
-    public static final Item BATTERY = register("battery", new DisposableBatteryItem(new FabricItemSettings().maxCount(1)));
-    public static final Item REDSTONE_BATTERY = register("redstone_battery", new Item(new FabricItemSettings()));
-    public static final Item MAGMATIC_BATTERY = register("magmatic_battery", new Item(new FabricItemSettings()));
-
     // ELECTRONIC PARTS
 
     public static final Item PROCESSOR = register("processor", new Item(new FabricItemSettings()));
@@ -42,12 +42,30 @@ public class BlockBotsItems {
     public static final Item WIRES = register("wires", new Item(new FabricItemSettings()));
     public static final Item SCREEN = register("screen", new Item(new FabricItemSettings()));
 
-    public static final Item FAULTY_BLOCK_BOT_EGG = registerSpawnEgg(BlockBotsEntities.FAULTY_BLOCK_BOT_ENTITY, 0xCCEAF6, 0x954D30);
+    // BATTERIES
 
+    public static final Item BATTERY = register("battery", new DisposableBatteryItem(new FabricItemSettings().maxCount(1)));
+    public static final Item REDSTONE_BATTERY = register("redstone_battery", new Item(new FabricItemSettings()));
+    public static final Item MAGMATIC_BATTERY = register("magmatic_battery", new Item(new FabricItemSettings()));
 
-    public static Item registerSpawnEgg(EntityType<? extends MobEntity> type, int primaryColor, int secondaryColor) {
-        Item egg = register(Registries.ENTITY_TYPE.getId(type).getPath() + "_spawn_egg", new SpawnEggItem(type, primaryColor, secondaryColor, new FabricItemSettings()));
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.SPAWN_EGGS).register(entries -> entries.add(egg));
+    // EGGS?
+
+    public static final Item FAULTY_BLOCK_BOT_EGG = registerSpawnEgg(BlockBotsEntities.FAULTY_BLOCK_BOT);
+    public static final Item BLOCK_BOT_EGG = registerSpawnEgg(BlockBotsEntities.BLOCK_BOT);
+    public static final Item BLOCK_BOT_COLLECTOR_EGG = registerSpawnEgg(BlockBotsEntities.BLOCK_BOT_COLLECTOR);
+    public static final Item BLOCK_BOT_FARMER_EGG = registerSpawnEgg(BlockBotsEntities.BLOCK_BOT_FARMER);
+    public static final Item BLOCK_BOT_HEALER_EGG = registerSpawnEgg(BlockBotsEntities.BLOCK_BOT_HEALER);
+    public static final Item BLOCK_BOT_FIGHTER_EGG = registerSpawnEgg(BlockBotsEntities.BLOCK_BOT_FIGHTER);
+    public static final Item BLOCK_BOT_LUMBERJACK_EGG = registerSpawnEgg(BlockBotsEntities.BLOCK_BOT_LUMBERJACK);
+    public static final Item BLOCK_BOT_CREEPER_EGG = registerSpawnEgg(BlockBotsEntities.BLOCK_BOT_CREEPER);
+    public static final Item BLOCK_BOT_ARCHER_EGG = registerSpawnEgg(BlockBotsEntities.BLOCK_BOT_ARCHER);
+    public static final Item BLOCK_BOT_MINER_EGG = registerSpawnEgg(BlockBotsEntities.BLOCK_BOT_MINER);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public static Item registerSpawnEgg(EntityType<? extends MobEntity> type) {
+        Item egg = register(Registries.ENTITY_TYPE.getId(type).getPath() + "_spawn_egg", new BotSpawnEgg(type, new FabricItemSettings()));
+        EGGS.add(egg);
         return egg;
     }
 

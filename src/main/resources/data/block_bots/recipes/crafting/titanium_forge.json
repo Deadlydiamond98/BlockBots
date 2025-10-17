@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "F": {
+      "item": "minecraft:furnace"
+    },
+    "T": {
+      "item": "block_bots:titanium_scrap"
+    },
+    "S": {
+      "item": "block_bots:screen"
+    }
+  },
+  "pattern": [
+    "TST",
+    "TFT",
+    "TTT"
+  ],
+  "result": {
+    "item": "block_bots:titanium_forge"
+  },
+  "show_notification": true
+}

@@ -17,10 +17,10 @@ public class BlockBotsItemTooltipEvents {
     private static int index = 1;
 
     public static void register() {
-        ItemTooltipCallback.EVENT.register(BlockBotsItemTooltipEvents::batteryLevelTooltip);
+        ItemTooltipCallback.EVENT.register(BlockBotsItemTooltipEvents::applyTooltips);
     }
 
-    private static void batteryLevelTooltip(ItemStack stack, TooltipContext context, List<Text> lines) {
+    private static void applyTooltips(ItemStack stack, TooltipContext context, List<Text> lines) {
         if (stack.getItem() instanceof IEnergyItem battery) {
             int lvl = battery.getBatteryLvl(stack);
             int maxLvl = battery.getMaxCharge();

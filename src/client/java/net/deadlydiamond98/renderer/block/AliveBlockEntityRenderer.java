@@ -1,6 +1,6 @@
 package net.deadlydiamond98.renderer.block;
 
-import net.deadlydiamond98.common.blocks.blocks.GeneratorBotBlock;
+import net.deadlydiamond98.common.blocks.blocks.power.GeneratorBotBlock;
 import net.deadlydiamond98.common.blocks.entities.AbstractBotBlockEntity;
 import net.deadlydiamond98.renderer.IBotScreenRenderer;
 import net.minecraft.block.BlockState;
@@ -32,9 +32,9 @@ public class AliveBlockEntityRenderer<T extends AbstractBotBlockEntity> implemen
         float offset = renderFace(glowLayer(entity.getOnTexture(), vCon), matrices, 255, OFFSET * 2, light);
 
         matrices.push();
-        if (entity.eyesFollowPlayer(entity)) {
+        if (entity.eyesFollowPlayer()) {
             double viewOffset = getViewingOffset(entity) * 0.045;
-            matrices.translate(viewOffset, 0, 0);
+            matrices.translate(viewOffset, entity.eyePositionOffset(), 0);
         }
         offset = renderFace(glowLayer(entity.getEyeTexture(entity), vCon), matrices, 255, offset, light);
         matrices.pop();

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "block_bots:block/titanium_forge",
+    "side": "block_bots:block/titanium_block",
+    "top": "block_bots:block/titanium_block"
+  }
+}

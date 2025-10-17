@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "block_bots:block/titanium_forge",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "block_bots:block/titanium_forge"
+    },
+    "facing=south": {
+      "model": "block_bots:block/titanium_forge",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "block_bots:block/titanium_forge",
+      "y": 270
+    }
+  }
+}

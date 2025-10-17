@@ -1,6 +1,7 @@
 package net.deadlydiamond98.common.entity.hostile;
 
 import net.deadlydiamond98.common.entity.base.BaseBlockBotEntity;
+import net.deadlydiamond98.common.entity.passive.base.BlockBot;
 import net.deadlydiamond98.common.items.battery.IEnergyItem;
 import net.deadlydiamond98.common.misc.BlockBotsTags;
 import net.minecraft.entity.EntityData;
@@ -8,13 +9,11 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.ai.goal.*;
-import net.minecraft.entity.attribute.DefaultAttributeContainer;
-import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.HostileEntity;
-import net.minecraft.entity.mob.MobEntity;
+import net.minecraft.entity.mob.Monster;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
@@ -26,17 +25,16 @@ import net.minecraft.util.math.random.Random;
 import net.minecraft.world.*;
 import org.jetbrains.annotations.Nullable;
 
-public class FaultyBlockBotEntity extends BaseBlockBotEntity {
+public class FaultyBlockBotEntity extends BaseBlockBotEntity implements Monster {
 
     // Aesthetic Variables
     private static final TrackedData<Integer> WIRE_COLOR = DataTracker.registerData(FaultyBlockBotEntity.class, TrackedDataHandlerRegistry.INTEGER);
     private static final TrackedData<Integer> WIRES = DataTracker.registerData(FaultyBlockBotEntity.class, TrackedDataHandlerRegistry.INTEGER);
     private static final TrackedData<Boolean> RUSTY = DataTracker.registerData(FaultyBlockBotEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
-    private static final TrackedData<Boolean> TARGETING = DataTracker.registerData(FaultyBlockBotEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 
     public FaultyBlockBotEntity(EntityType<? extends BaseBlockBotEntity> entityType, World world) {
         super(entityType, world);
-        this.experiencePoints = 5;
+        this.experiencePoints = NORMAL_MONSTER_XP;
     }
 
     protected void initGoals() {
@@ -46,13 +44,15 @@ public class FaultyBlockBotEntity extends BaseBlockBotEntity {
         this.goalSelector.add(7, new WanderAroundFarGoal(this, 1));
         this.targetSelector.add(1, new RevengeGoal(this));
         this.targetSelector.add(2, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
+        this.targetSelector.add(2, new ActiveTargetGoal<>(this, BaseBlockBotEntity.class, true, entity ->
+                !(entity instanceof Monster))
+        );
     }
 
     @Override
     public void tick() {
         super.tick();
         if (!getWorld().isClient) {
-            this.dataTracker.set(TARGETING, this.getTarget() != null);
 
             if (this.age % 30 == 0 && getWorld().getFluidState(getBlockPos()).isIn(FluidTags.WATER)) {
                 this.dataTracker.set(RUSTY, true);
@@ -67,13 +67,6 @@ public class FaultyBlockBotEntity extends BaseBlockBotEntity {
             energyItem.setBatteryLvl(stack, getRandom().nextBetween(5, 24));
         }
         return super.dropStack(stack, yOffset);
-    }
-
-    public static DefaultAttributeContainer.Builder createCustomAttributes() {
-        return MobEntity.createMobAttributes()
-                .add(EntityAttributes.GENERIC_MAX_HEALTH, 10)
-                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 3)
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.3);
     }
 
     @Override
@@ -98,7 +91,6 @@ public class FaultyBlockBotEntity extends BaseBlockBotEntity {
         this.dataTracker.startTracking(WIRES, 0);
         this.dataTracker.startTracking(WIRE_COLOR, 0);
         this.dataTracker.startTracking(RUSTY, false);
-        this.dataTracker.startTracking(TARGETING, false);
     }
 
     @Nullable
@@ -141,8 +133,8 @@ public class FaultyBlockBotEntity extends BaseBlockBotEntity {
 
     @Override
     public Identifier getEyeTexture(BaseBlockBotEntity entity) {
-        if (this.dataTracker.get(TARGETING) && this.ouchieTicks <= 0) {
-            return getEye("mean");
+        if (isTargeting() && this.ouchieTicks <= 0) {
+            return getEye(isBlinking(entity) ? "blink" : "mean");
         }
         return super.getEyeTexture(entity);
     }

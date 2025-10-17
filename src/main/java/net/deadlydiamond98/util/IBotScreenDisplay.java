@@ -41,7 +41,11 @@ public interface IBotScreenDisplay<T> {
         return getEye(isBlinking(entity) ? "blink" : "regular");
     }
 
-    default boolean eyesFollowPlayer(T entity) {
+    default float eyePositionOffset() {
+        return 0;
+    }
+
+    default boolean eyesFollowPlayer() {
         return true;
     }
 
@@ -59,5 +63,9 @@ public interface IBotScreenDisplay<T> {
 
     default boolean showMouth(T entity) {
         return false;
+    }
+
+    default float getMouthOffset() {
+        return 0;
     }
 }

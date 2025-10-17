@@ -5,10 +5,10 @@
       "item": "block_bots:silicon_crystals"
     },
     "#": {
-      "item": "block_bots:silicon_wafer"
+      "item": "minecraft:glass"
     },
     "G": {
-      "item": "minecraft:glowstone"
+      "item": "minecraft:glowstone_dust"
     },
     "W": {
       "item": "block_bots:wires"

@@ -1,0 +1,25 @@
+{
+  "entity.block_bot.hurt": {
+    "subtitle": "sounds.block_bots.block_bot_hurt",
+    "sounds": [
+      "block_bots:entity/block_bot/hurt1",
+      "block_bots:entity/block_bot/hurt2",
+      "block_bots:entity/block_bot/hurt3",
+      "block_bots:entity/block_bot/hurt4",
+      "block_bots:entity/block_bot/hurt5",
+      "block_bots:entity/block_bot/hurt6",
+      "block_bots:entity/block_bot/hurt7",
+      "block_bots:entity/block_bot/hurt8",
+      "block_bots:entity/block_bot/hurt9"
+    ]
+  },
+  "entity.block_bot.death": {
+    "subtitle": "sounds.block_bots.block_bot_death",
+    "sounds": [
+      "block_bots:entity/block_bot/death1",
+      "block_bots:entity/block_bot/death2",
+      "block_bots:entity/block_bot/death3",
+      "block_bots:entity/block_bot/death4"
+    ]
+  }
+}

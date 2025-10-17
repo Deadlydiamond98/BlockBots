@@ -7,6 +7,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.client.BlockStateModelGenerator;
 import net.minecraft.data.client.ItemModelGenerator;
+import net.minecraft.item.Item;
 
 public class BlockBotsModelDatagen extends FabricModelProvider {
 
@@ -23,6 +24,8 @@ public class BlockBotsModelDatagen extends FabricModelProvider {
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
+        ItemModelDatagenUtil.registerGenerated(itemModelGenerator, BlockBotsItems.EGGS.toArray(Item[]::new));
+
         ItemModelDatagenUtil.registerGenerated(itemModelGenerator,
                 BlockBotsItems.TITANIUM_SCRAPS,
                 BlockBotsItems.TITANIUM_NUGGET,
@@ -37,9 +40,14 @@ public class BlockBotsModelDatagen extends FabricModelProvider {
                 BlockBotsItems.BATTERY,
                 BlockBotsItems.REDSTONE_BATTERY,
                 BlockBotsItems.MAGMATIC_BATTERY
-        );
-        ItemModelDatagenUtil.registerSpawnEggs(itemModelGenerator,
-                BlockBotsItems.FAULTY_BLOCK_BOT_EGG
+
+//                BlockBotsItems.FAULTY_BLOCK_BOT_EGG,
+//                BlockBotsItems.BLOCK_BOT_EGG,
+//                BlockBotsItems.BLOCK_BOT_COLLECTOR_EGG,
+//                BlockBotsItems.BLOCK_BOT_FARMER_EGG,
+//                BlockBotsItems.BLOCK_BOT_HEALER_EGG,
+//                BlockBotsItems.BLOCK_BOT_FIGHTER_EGG,
+//                BlockBotsItems.BLOCK_BOT_LUMBERJACK_EGG
         );
     }
 }
