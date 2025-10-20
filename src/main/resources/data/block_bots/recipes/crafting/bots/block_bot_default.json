@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "S": {
+      "item": "block_bots:screen"
+    },
+    "B": {
+      "item": "block_bots:motherboard"
+    },
+    "T": {
+      "item": "block_bots:titanium_ingot"
+    }
+  },
+  "pattern": [
+    "TTT",
+    "SBT",
+    "TTT"
+  ],
+  "result": {
+    "item": "block_bots:block_bot_spawn_egg"
+  },
+  "show_notification": true
+}

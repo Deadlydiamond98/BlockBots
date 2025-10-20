@@ -46,7 +46,7 @@ public class HarvestOreGoal extends MoveToTargetPosGoal {
             if (result.getType() == HitResult.Type.BLOCK) {
                 BlockHitResult blockHitResult = (BlockHitResult) result;
                 BlockState state = this.mob.getWorld().getBlockState(blockHitResult.getBlockPos());
-                if (!state.isIn(BlockBotsTags.Blocks.MINER_BLACKLIST)) {
+                if (!state.isIn(BlockBotsTags.Blocks.MINER_BLACKLIST) && isBreakable(this.mob.getWorld(), blockHitResult.getBlockPos())) {
                     this.mob.getWorld().breakBlock(blockHitResult.getBlockPos(), true);
                 }
             }
@@ -54,10 +54,14 @@ public class HarvestOreGoal extends MoveToTargetPosGoal {
         }
     }
 
+    private boolean isBreakable(WorldView world, BlockPos pos) {
+        return world.getBlockState(pos).getHardness(world, pos) != -1;
+    }
+
     @Override
     protected boolean isTargetPos(WorldView world, BlockPos pos) {
         Block block = ((BlockBotMiner) this.mob).getTargetBlock();
 
-        return block != null && world.getBlockState(pos).isOf(block) && !(this.mob.getBlockPos().getY() > pos.getY());
+        return block != null && world.getBlockState(pos).isOf(block) && !(this.mob.getBlockPos().getY() > pos.getY()) && isBreakable(world, pos);
     }
 }

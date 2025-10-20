@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "B": {
+      "item": "block_bots:block_bot_spawn_egg"
+    },
+    "S": {
+      "item": "minecraft:iron_sword"
+    },
+    "I": {
+      "item": "block_bots:titanium_ingot"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "pattern": [
+    "IRI",
+    "SBR",
+    "IRI"
+  ],
+  "result": {
+    "item": "block_bots:block_bot_fighter_spawn_egg"
+  },
+  "show_notification": true
+}

@@ -39,14 +39,13 @@ public class BlockBotsItems {
 
     public static final Item PROCESSOR = register("processor", new Item(new FabricItemSettings()));
     public static final Item PCB = register("pcb", new Item(new FabricItemSettings()));
+    public static final Item MOTHERBOARD = register("motherboard", new Item(new FabricItemSettings()));
     public static final Item WIRES = register("wires", new Item(new FabricItemSettings()));
     public static final Item SCREEN = register("screen", new Item(new FabricItemSettings()));
 
     // BATTERIES
 
     public static final Item BATTERY = register("battery", new DisposableBatteryItem(new FabricItemSettings().maxCount(1)));
-    public static final Item REDSTONE_BATTERY = register("redstone_battery", new Item(new FabricItemSettings()));
-    public static final Item MAGMATIC_BATTERY = register("magmatic_battery", new Item(new FabricItemSettings()));
 
     // EGGS?
 
@@ -60,6 +59,7 @@ public class BlockBotsItems {
     public static final Item BLOCK_BOT_CREEPER_EGG = registerSpawnEgg(BlockBotsEntities.BLOCK_BOT_CREEPER);
     public static final Item BLOCK_BOT_ARCHER_EGG = registerSpawnEgg(BlockBotsEntities.BLOCK_BOT_ARCHER);
     public static final Item BLOCK_BOT_MINER_EGG = registerSpawnEgg(BlockBotsEntities.BLOCK_BOT_MINER);
+    public static final Item BLOCK_BOT_YOUTHANIZER_EGG = registerSpawnEgg(BlockBotsEntities.BLOCK_BOT_YOUTHANIZER);
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

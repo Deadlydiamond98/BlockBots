@@ -26,7 +26,7 @@ public class BlockBotWiresModel<T extends FaultyBlockBotEntity> extends EntityMo
 	private final ModelPart wire10;
 
 	public BlockBotWiresModel(ModelPart root) {
-		this.wires = root.getChild("wires");
+		this.wires = root.getChild("wires.json");
 		this.wire1 = this.wires.getChild("wire1");
 		this.wire2 = this.wires.getChild("wire2");
 		this.wire3 = this.wires.getChild("wire3");
@@ -42,7 +42,7 @@ public class BlockBotWiresModel<T extends FaultyBlockBotEntity> extends EntityMo
 	public static TexturedModelData getTexturedModelData() {
 		ModelData modelData = new ModelData();
 		ModelPartData modelPartData = modelData.getRoot();
-		ModelPartData wires = modelPartData.addChild("wires", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 24.0F, 0.0F));
+		ModelPartData wires = modelPartData.addChild("wires.json", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 24.0F, 0.0F));
 
 		ModelPartData wire1 = wires.addChild("wire1", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
 

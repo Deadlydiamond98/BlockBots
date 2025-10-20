@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "B": {
+      "item": "block_bots:block_bot_collector_spawn_egg"
+    },
+    "H": {
+      "item": "minecraft:iron_axe"
+    },
+    "#": {
+      "item": "minecraft:black_wool"
+    }
+  },
+  "pattern": [
+    " # ",
+    "HB "
+  ],
+  "result": {
+    "item": "block_bots:block_bot_lumberjack_spawn_egg"
+  },
+  "show_notification": true
+}

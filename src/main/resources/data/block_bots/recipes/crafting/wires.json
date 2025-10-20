@@ -1,14 +1,11 @@
 {
   "type": "minecraft:crafting_shaped",
   "key": {
+    "#": {
+      "item": "block_bots:silicon_crystals"
+    },
     "C": {
       "item": "minecraft:copper_ingot"
-    },
-    "T": {
-      "item": "block_bots:titanium_nugget"
-    },
-    "G": {
-      "item": "minecraft:gold_nugget"
     },
     "R": {
       "item": "minecraft:red_dye"
@@ -18,9 +15,9 @@
     }
   },
   "pattern": [
-    "GGB",
-    "RCB",
-    "RTT"
+    "#R#",
+    "CCC",
+    "#B#"
   ],
   "result": {
     "item": "block_bots:wires",

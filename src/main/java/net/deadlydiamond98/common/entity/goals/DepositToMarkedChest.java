@@ -63,7 +63,7 @@ public class DepositToMarkedChest<T extends BlockBotWithInventory> extends MoveT
         super.tick();
         if (this.mob.getWorld().getBlockEntity(this.targetPos) instanceof Inventory chest) {
             double distance = this.mob.squaredDistanceTo(this.targetPos.getX() + 0.5f, this.targetPos.getY() + 0.5f, this.targetPos.getZ() + 0.5f);
-            this.mob.getNavigation().startMovingTo(this.targetPos.getX() + 0.5f, this.targetPos.getY() - 1, this.targetPos.getZ() + 0.5f, 1);
+            this.mob.getNavigation().startMovingTo(this.targetPos.getX() + 0.5f, this.targetPos.getY() - 1, this.targetPos.getZ() + 0.5f, 1.2);
             if (distance < Math.pow(this.mob.getWidth(), 2) + 3) {
                 this.mob.getNavigation().stop();
                 if (!this.depositingToChest) {

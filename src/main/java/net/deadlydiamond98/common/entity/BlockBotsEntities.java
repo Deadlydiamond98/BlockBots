@@ -35,6 +35,7 @@ public class BlockBotsEntities {
     public static final EntityType<BlockBotCreeper> BLOCK_BOT_CREEPER = register("block_bot_creeper", create(BlockBotCreeper.class, 0.75f, 0.75f));
     public static final EntityType<BlockBotArcher> BLOCK_BOT_ARCHER = register("block_bot_archer", create(BlockBotArcher.class, 0.75f, 0.75f));
     public static final EntityType<BlockBotMiner> BLOCK_BOT_MINER = register("block_bot_miner", create(BlockBotMiner.class, 0.75f, 0.75f));
+    public static final EntityType<BlockBotYouthanizer> BLOCK_BOT_YOUTHANIZER = register("block_bot_youthanizer", create(BlockBotYouthanizer.class, 0.75f, 0.75f));
 
 
     // REGISTRATION
@@ -68,6 +69,7 @@ public class BlockBotsEntities {
         FabricDefaultAttributeRegistry.register(BLOCK_BOT_CREEPER, BlockBotCreeper.createCustomAttributes());
         FabricDefaultAttributeRegistry.register(BLOCK_BOT_ARCHER, BaseBlockBotEntity.createCustomAttributes());
         FabricDefaultAttributeRegistry.register(BLOCK_BOT_MINER, BlockBotMiner.createCustomAttributes());
+        FabricDefaultAttributeRegistry.register(BLOCK_BOT_YOUTHANIZER, BaseBlockBotEntity.createCustomAttributes());
     }
 
     private static void spawns() {
@@ -75,7 +77,7 @@ public class BlockBotsEntities {
                 BiomeSelectors.tag(BiomeTags.IS_OVERWORLD),
                 SpawnGroup.MONSTER,
                 FAULTY_BLOCK_BOT,
-                100, 1, 2
+                50, 1, 2
         );
         SpawnRestriction.register(
                 FAULTY_BLOCK_BOT, SpawnRestriction.Location.ON_GROUND,

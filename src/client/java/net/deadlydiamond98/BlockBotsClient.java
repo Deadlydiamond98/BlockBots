@@ -42,6 +42,7 @@ public class BlockBotsClient implements ClientModInitializer {
 		EntityRendererRegistry.register(BlockBotsEntities.BLOCK_BOT_CREEPER, BlockBotCreeperRenderer::new);
 		EntityRendererRegistry.register(BlockBotsEntities.BLOCK_BOT_LUMBERJACK, BlockBotLumberjackRenderer::new);
 		EntityRendererRegistry.register(BlockBotsEntities.BLOCK_BOT_MINER, BlockBotMinerRenderer::new);
+		EntityRendererRegistry.register(BlockBotsEntities.BLOCK_BOT_YOUTHANIZER, BlockBotYouthanizerRenderer::new);
 
 		// Block Entity Renderers
 		BlockEntityRendererFactories.register(BlockBotsBlockEntities.GENERATOR_BOT, AliveBlockEntityRenderer::new);
@@ -55,5 +56,6 @@ public class BlockBotsClient implements ClientModInitializer {
 		EntityModelLayerRegistry.registerModelLayer(BlockBotBandanaLikeModel.LAYER_LOCATION, BlockBotBandanaLikeModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(BlockBotBeanieModel.LAYER_LOCATION, BlockBotBeanieModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(BlockBotMinerHatModel.LAYER_LOCATION, BlockBotMinerHatModel::getTexturedModelData);
+		EntityModelLayerRegistry.registerModelLayer(BlockBotCatEarsModel.LAYER_LOCATION, BlockBotCatEarsModel::getTexturedModelData);
 	}
 }

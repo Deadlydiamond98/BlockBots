@@ -35,19 +35,10 @@ public class BlockBotsModelDatagen extends FabricModelProvider {
                 BlockBotsItems.SILICON_WAFER,
                 BlockBotsItems.PROCESSOR,
                 BlockBotsItems.PCB,
+                BlockBotsItems.MOTHERBOARD,
                 BlockBotsItems.WIRES,
                 BlockBotsItems.SCREEN,
-                BlockBotsItems.BATTERY,
-                BlockBotsItems.REDSTONE_BATTERY,
-                BlockBotsItems.MAGMATIC_BATTERY
-
-//                BlockBotsItems.FAULTY_BLOCK_BOT_EGG,
-//                BlockBotsItems.BLOCK_BOT_EGG,
-//                BlockBotsItems.BLOCK_BOT_COLLECTOR_EGG,
-//                BlockBotsItems.BLOCK_BOT_FARMER_EGG,
-//                BlockBotsItems.BLOCK_BOT_HEALER_EGG,
-//                BlockBotsItems.BLOCK_BOT_FIGHTER_EGG,
-//                BlockBotsItems.BLOCK_BOT_LUMBERJACK_EGG
+                BlockBotsItems.BATTERY
         );
     }
 }

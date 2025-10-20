@@ -32,20 +32,13 @@ public class BlockBotsTab {
 
                 entry.add(BlockBotsItems.PROCESSOR);
                 entry.add(BlockBotsItems.PCB);
+                entry.add(BlockBotsItems.MOTHERBOARD);
                 entry.add(BlockBotsItems.WIRES);
                 entry.add(BlockBotsItems.SCREEN);
 
-                entry.add(BlockBotsItems.BATTERY);
+//                entry.add(BlockBotsItems.BATTERY);
 
                 entry.add(BlockBotsBlocks.CHEST_MARKER);
-
-//                entry.add(BlockBotsItems.FAULTY_BLOCK_BOT_EGG);
-//                entry.add(BlockBotsItems.BLOCK_BOT_EGG);
-//                entry.add(BlockBotsItems.BLOCK_BOT_COLLECTOR_EGG);
-//                entry.add(BlockBotsItems.BLOCK_BOT_FARMER_EGG);
-//                entry.add(BlockBotsItems.BLOCK_BOT_HEALER_EGG);
-//                entry.add(BlockBotsItems.BLOCK_BOT_FIGHTER_EGG);
-//                entry.add(BlockBotsItems.BLOCK_BOT_LUMBERJACK_EGG);
 
                 BlockBotsItems.EGGS.forEach(entry::add);
 

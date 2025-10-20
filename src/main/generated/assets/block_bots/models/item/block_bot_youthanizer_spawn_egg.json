@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "block_bots:item/block_bot_youthanizer_spawn_egg"
+  }
+}

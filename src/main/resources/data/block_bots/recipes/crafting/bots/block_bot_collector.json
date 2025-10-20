@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "B": {
+      "item": "block_bots:block_bot_spawn_egg"
+    },
+    "C": {
+      "item": "minecraft:chest"
+    },
+    "T": {
+      "item": "block_bots:titanium_nugget"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "pattern": [
+    "TCT",
+    "RBR",
+    "TRT"
+  ],
+  "result": {
+    "item": "block_bots:block_bot_collector_spawn_egg"
+  },
+  "show_notification": true
+}

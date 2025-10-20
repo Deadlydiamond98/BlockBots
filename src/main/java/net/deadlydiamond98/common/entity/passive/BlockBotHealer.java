@@ -2,9 +2,11 @@ package net.deadlydiamond98.common.entity.passive;
 
 import net.deadlydiamond98.common.entity.base.BaseBlockBotEntity;
 import net.deadlydiamond98.common.entity.goals.ownergoal.BlockBotFollowOwnerGoal;
+import net.deadlydiamond98.common.entity.hostile.FaultyBlockBotEntity;
 import net.deadlydiamond98.common.entity.passive.base.OwnedBlockBotEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.ai.goal.FleeEntityGoal;
 import net.minecraft.entity.ai.goal.LookAroundGoal;
 import net.minecraft.entity.ai.goal.LookAtEntityGoal;
 import net.minecraft.entity.ai.goal.WanderAroundFarGoal;
@@ -14,6 +16,8 @@ import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.Monster;
+import net.minecraft.entity.mob.ZombieEntity;
+import net.minecraft.entity.passive.WolfEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.particle.ParticleEffect;
@@ -28,10 +32,17 @@ import java.util.List;
 public class BlockBotHealer extends OwnedBlockBotEntity {
 
     private static final TrackedData<Boolean> IS_HEALING = DataTracker.registerData(BlockBotHealer.class, TrackedDataHandlerRegistry.BOOLEAN);
-    private int cantFindTicks = 0;
+    private static final int DURATION = 100;
 
     public BlockBotHealer(EntityType<? extends BaseBlockBotEntity> entityType, World world) {
         super(entityType, world);
+    }
+
+    @Override
+    protected void initGoals() {
+        super.initGoals();
+        this.goalSelector.add(3, new FleeEntityGoal<>(this, ZombieEntity.class, 6, 1, 1.2));
+        this.goalSelector.add(3, new FleeEntityGoal<>(this, FaultyBlockBotEntity.class, 6, 1, 1.2));
     }
 
     @Override
@@ -39,14 +50,15 @@ public class BlockBotHealer extends OwnedBlockBotEntity {
         super.tick();
 
         if (!getWorld().isClient) {
-            if (isCloseToOwner()) {
-                this.getOwner().addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 30, 0, false, false));
+            if (isCloseToOwner() && !this.getOwner().hasStatusEffect(StatusEffects.REGENERATION)) {
+                this.getOwner().addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, DURATION, 0, true, false));
             }
 
-            getWorld().getEntitiesByClass(LivingEntity.class, getBoundingBox().expand(5), entity -> !(entity instanceof Monster))
-                    .forEach(living -> living.addStatusEffect(
-                            new StatusEffectInstance(StatusEffects.REGENERATION, 30, 0, false, false)
-                    ));
+            getWorld().getEntitiesByClass(LivingEntity.class, getBoundingBox().expand(5), entity -> !(entity instanceof Monster)).forEach(living -> {
+                if (!living.hasStatusEffect(StatusEffects.REGENERATION)) {
+                    living.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, DURATION, 2, true, false));
+                }
+            });
 
             this.dataTracker.set(IS_HEALING, isCloseToOwner());
         }
@@ -76,18 +88,10 @@ public class BlockBotHealer extends OwnedBlockBotEntity {
         if (this.ouchieTicks > 0) {
             return getEye("ouchie");
         } else if (this.dataTracker.get(IS_HEALING)) {
-            this.cantFindTicks = 0;
             return getEye("happi");
-        } else if (this.cantFindTicks++ >= 100) {
-            return getEye("sad");
         }
 
         return super.getEyeTexture(entity);
-    }
-
-    @Override
-    public boolean showMouth(BaseBlockBotEntity entity) {
-        return this.cantFindTicks >= 100;
     }
 
     @Override

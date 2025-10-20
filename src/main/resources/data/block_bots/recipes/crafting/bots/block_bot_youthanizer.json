@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "B": {
+      "item": "block_bots:block_bot_collector_spawn_egg"
+    },
+    "C": {
+      "item": "minecraft:golden_carrot"
+    },
+    "P": {
+      "item": "minecraft:poisonous_potato"
+    },
+    "L": {
+      "item": "minecraft:light_gray_wool"
+    },
+    "G": {
+      "item": "minecraft:pink_wool"
+    }
+  },
+  "pattern": [
+    "LGL",
+    "CBP"
+  ],
+  "result": {
+    "item": "block_bots:block_bot_youthanizer_spawn_egg"
+  },
+  "show_notification": true
+}

@@ -2,19 +2,22 @@
   "type": "minecraft:crafting_shaped",
   "key": {
     "#": {
-      "item": "block_bots:silicon_wafer"
+      "item": "block_bots:silicon_crystals"
+    },
+    "C": {
+      "item": "minecraft:copper_ingot"
     },
     "G": {
-      "item": "minecraft:gold_nugget"
+      "item": "minecraft:gold_ingot"
     },
     "D": {
       "item": "minecraft:green_dye"
     }
   },
   "pattern": [
-    "GGG",
-    "##D",
-    "GGG"
+    "DGD",
+    "###",
+    "CCC"
   ],
   "result": {
     "item": "block_bots:pcb"

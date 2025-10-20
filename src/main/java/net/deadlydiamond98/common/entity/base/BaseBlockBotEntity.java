@@ -1,5 +1,6 @@
 package net.deadlydiamond98.common.entity.base;
 
+import net.deadlydiamond98.common.entity.hostile.FaultyBlockBotEntity;
 import net.deadlydiamond98.common.misc.BlockBotsSounds;
 import net.deadlydiamond98.util.IBotScreenDisplay;
 import net.minecraft.block.Blocks;
@@ -219,5 +220,10 @@ public class BaseBlockBotEntity extends PathAwareEntity implements IBotScreenDis
     @Override
     protected SoundEvent getDeathSound() {
         return BlockBotsSounds.BLOCK_BOT_DEATH;
+    }
+
+    @Override
+    public boolean cannotDespawn() {
+        return !(this instanceof FaultyBlockBotEntity);
     }
 }

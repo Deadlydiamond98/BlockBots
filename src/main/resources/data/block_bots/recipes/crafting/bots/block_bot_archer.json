@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "B": {
+      "item": "block_bots:block_bot_spawn_egg"
+    },
+    "S": {
+      "item": "minecraft:bow"
+    },
+    "T": {
+      "item": "block_bots:titanium_nugget"
+    },
+    "I": {
+      "item": "minecraft:arrow"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "pattern": [
+    "TRT",
+    "SBI",
+    "TRT"
+  ],
+  "result": {
+    "item": "block_bots:block_bot_archer_spawn_egg"
+  },
+  "show_notification": true
+}
