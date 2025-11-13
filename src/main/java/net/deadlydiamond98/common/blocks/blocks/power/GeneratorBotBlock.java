@@ -2,7 +2,7 @@ package net.deadlydiamond98.common.blocks.blocks.power;
 
 import net.deadlydiamond98.common.blocks.BlockBotsBlockEntities;
 import net.deadlydiamond98.common.blocks.entities.power.GeneratorBotBlockEntity;
-import net.deadlydiamond98.koalalib.common.blocks.OrientableBlockWithEntity;
+import net.deadlydiamond98.koalalib.common.blocks.misc.OrientableBlockWithEntity;
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
