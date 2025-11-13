@@ -21,7 +21,7 @@ public class BlockBots implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		KoalaConfigCreator.addModConfig(MOD_ID, BlockBotConfig.class);
+//		KoalaConfigCreator.addModConfig(MOD_ID, BlockBotConfig.class);
 
 		BlockBotsItems.register();
 		BlockBotsBlocks.register();
