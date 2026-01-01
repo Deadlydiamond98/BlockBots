@@ -16,6 +16,7 @@ import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.mob.PathAwareEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.AxeItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
@@ -38,6 +39,7 @@ public class BaseBlockBotEntity extends PathAwareEntity implements IBotScreenDis
 
     protected int ouchieTicks, blinkTimer;
     protected int screenAlpha = 25;
+    private boolean waxed = false;
 
     public BaseBlockBotEntity(EntityType<? extends PathAwareEntity> entityType, World world) {
         super(entityType, world);
@@ -50,7 +52,7 @@ public class BaseBlockBotEntity extends PathAwareEntity implements IBotScreenDis
         ouchieTicks--;
         if (!getWorld().isClient) {
             this.dataTracker.set(TARGETING, this.getTarget() != null);
-            if (this.isTouchingWaterOrRain() && this.age % 15 == 0) {
+            if (!this.waxed && this.isTouchingWaterOrRain() && this.age % 15 == 0) {
                 this.damage(this.getDamageSources().generic(), 1);
             }
         }
@@ -167,39 +169,52 @@ public class BaseBlockBotEntity extends PathAwareEntity implements IBotScreenDis
     @Override
     protected ActionResult interactMob(PlayerEntity player, Hand hand) {
         ItemStack itemStack = player.getStackInHand(hand);
-        if (!this.getWorld().isClient) {
-            if (itemStack.isOf(Items.SHEARS)) {
-                if (this.isMossy()) {
-                    this.getWorld().playSoundFromEntity(null, this, SoundEvents.ENTITY_SHEEP_SHEAR, SoundCategory.PLAYERS, 1.0F, 1.0F);
-                    this.getWorld().spawnEntity(new ItemEntity(this.getWorld(), this.getBlockX(), this.getBlockY(), this.getBlockZ(),  new ItemStack(Blocks.MOSS_CARPET)));
-                    setMossy(false);
-                    this.emitGameEvent(GameEvent.SHEAR, player);
-                    itemStack.damage(1, player, (playerx) -> playerx.sendToolBreakStatus(hand));
-                    return ActionResult.SUCCESS;
-                }
-                return ActionResult.CONSUME;
-            } else if (itemStack.isOf(Blocks.MOSS_CARPET.asItem())) {
-                if (!this.isMossy()) {
-                    this.getWorld().playSoundFromEntity(null, this, SoundEvents.BLOCK_MOSS_CARPET_PLACE, SoundCategory.PLAYERS, 1.0F, 1.0F);
-                    setMossy(true);
-                    itemStack.decrement(1);
-                    return ActionResult.SUCCESS;
-                }
-                return ActionResult.CONSUME;
+        if (itemStack.isOf(Items.SHEARS)) {
+            if (this.isMossy()) {
+                this.getWorld().playSoundFromEntity(null, this, SoundEvents.ENTITY_SHEEP_SHEAR, SoundCategory.PLAYERS, 1.0F, 1.0F);
+                this.getWorld().spawnEntity(new ItemEntity(this.getWorld(), this.getBlockX(), this.getBlockY(), this.getBlockZ(),  new ItemStack(Blocks.MOSS_CARPET)));
+                setMossy(false);
+                this.emitGameEvent(GameEvent.SHEAR, player);
+                itemStack.damage(1, player, (playerx) -> playerx.sendToolBreakStatus(hand));
+                return ActionResult.SUCCESS;
             }
+            return ActionResult.CONSUME;
+        } else if (itemStack.isOf(Blocks.MOSS_CARPET.asItem())) {
+            if (!this.isMossy()) {
+                this.getWorld().playSoundFromEntity(null, this, SoundEvents.BLOCK_MOSS_CARPET_PLACE, SoundCategory.PLAYERS, 1.0F, 1.0F);
+                setMossy(true);
+                itemStack.decrement(1);
+                return ActionResult.SUCCESS;
+            }
+            return ActionResult.CONSUME;
+        } else if (itemStack.isOf(Items.HONEYCOMB) && !this.waxed) {
+            this.getWorld().playSoundFromEntity(null, this, SoundEvents.ITEM_HONEYCOMB_WAX_ON, SoundCategory.PLAYERS, 1.0F, 1.0F);
+            itemStack.decrement(1);
+            this.waxed = true;
+            return ActionResult.SUCCESS;
+        } else if (itemStack.getItem() instanceof AxeItem && this.waxed) {
+            this.getWorld().playSoundFromEntity(null, this, SoundEvents.ITEM_AXE_WAX_OFF, SoundCategory.PLAYERS, 1.0F, 1.0F);
+            this.waxed = false;
+            return ActionResult.SUCCESS;
         }
-        return super.interactMob(player, hand);
+        return this.otherInteractMobAction(player, hand);
+    }
+
+    protected ActionResult otherInteractMobAction(PlayerEntity player, Hand hand) {
+        return ActionResult.PASS;
     }
 
     @Override
     public void readNbt(NbtCompound nbt) {
         super.readNbt(nbt);
         setMossy(nbt.getBoolean("Mossy"));
+        this.waxed = nbt.getBoolean("Waxed");
     }
 
     @Override
     public NbtCompound writeNbt(NbtCompound nbt) {
         nbt.putBoolean("Mossy", isMossy());
+        nbt.putBoolean("Waxed", this.waxed);
         return super.writeNbt(nbt);
     }
 

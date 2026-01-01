@@ -59,13 +59,10 @@ public class OwnedBlockBotEntity extends BlockBotWithInventory implements Tameab
     }
 
     @Override
-    protected ActionResult interactMob(PlayerEntity player, Hand hand) {
-        if (!this.getWorld().isClient) {
-            this.followState = BehaviorState.values()[(this.followState.ordinal() + 1) % BehaviorState.values().length];
-            player.sendMessage(Text.translatable("entity.block_bots.follow_state")
-                    .append(this.followState.getLang()), true);
-        }
-
+    protected ActionResult otherInteractMobAction(PlayerEntity player, Hand hand) {
+        this.followState = BehaviorState.values()[(this.followState.ordinal() + 1) % BehaviorState.values().length];
+        player.sendMessage(Text.translatable("entity.block_bots.follow_state")
+                .append(this.followState.getLang()), true);
         return ActionResult.SUCCESS;
     }
 
